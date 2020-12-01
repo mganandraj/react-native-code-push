@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package>
+  <Include Name="$(OTOOLSINC)\apk\powerpoint\config\ppt_officemobile_common_assets.xml" />
+  <Include Name="$(OTOOLSINC)\apk\excel\config\excel_officemobile_common_assets.xml" />
+  <Include Name="$(OTOOLSINC)\apk\word\config\word_officemobile_common_assets.xml" />
+ <Includes>
+   <Resources>
+     <ItemContainer Destination="values-ja" Culture="ja-jp.pseudo">
+       <Item Source="intl_android\$(var.Platform)\$(var.Flavor)\ja-jp.pseudo\android_StringsXml_Droid.xml" Destination="android_StringsXml_Droid.xml" />
+       <Item Source="intl_msodll_30\$(var.Platform)\$(var.Flavor)\ja-jp.pseudo\msointl30_stringsxml_android.xml" Destination="msointl30_stringsxml_android.xml" />
+       <Item Source="intl_officemobile\$(var.Platform)\$(var.Flavor)\ja-jp.pseudo\officemobilexml_droid.xml" Destination="officemobilexml_droid.xml" />
+     </ItemContainer>
+     <ItemContainer Destination="values-ru" Culture="ja-jp.pseudo">
+       <Item Source="intl_android\$(var.Platform)\$(var.Flavor)\ar-sa.pseudo\android_StringsXml_Droid.xml" Destination="android_StringsXml_Droid.xml" />
+       <Item Source="intl_msodll_30\$(var.Platform)\$(var.Flavor)\ar-sa.pseudo\msointl30_stringsxml_android.xml" Destination="msointl30_stringsxml_android.xml" />
+     </ItemContainer>
+     <ItemContainer Destination="xml">
+       <Item Source="packages\microsoft.office.warehouse.android.network.security.config\common_network_security_config.xml" Destination="network_security_config.xml" />
+     </ItemContainer>
+   </Resources>
+   <Assets>
+     <Apk>
+        <ItemContainer Destination="en-US">
+          <Item Source="officemobileintl\$(var.Platform)\$(var.Flavor)\en-us\officemobile_droid.dll" Destination="officemobile_droid.dll" CompressionType="7z" />
+        </ItemContainer>
+        <ItemContainer Destination="ja-JP" Culture="ja-jp.pseudo">
+          <Item Source="intl_officemobile\$(var.Platform)\$(var.Flavor)\ja-jp.pseudo\officemobile_droid.dll" Destination="officemobile_droid.dll" CompressionType="7z" />
+        </ItemContainer>
+        <Item Source="oleo\$(var.Platform)\$(var.Flavor)\x-none\cultures\officeandroid.odf" Destination="officeandroid.odf" CompressionType="7z" />
+        <Item Source="platformsdk\$(var.Platform)\$(var.Flavor)\x-none\sortdefault.nls" Destination="sortdefault.nls" CompressionType="7z" />
+        <Item Source="packages\OfficeSDXPlatformBundles\android\$(var.Flavor)\foundation.android.bundle" Destination="foundation.android.bundle" CompressionType="7z" />
+        <Item Source="packages\OfficeSDXPlatformBundles\android\$(var.Flavor)\ui.android.bundle" Destination="ui.android.bundle" CompressionType="7z" />
+	<!--Item Source="packages\OfficeSDXPlatformBundles\android\$(var.Flavor)\index.android.bundle" Destination="index.android.bundle" /-->
+        <Item Source="" Destination="c_1252.nls" />
+        <Item Source="" Destination="l_intl.nls" />
+        <Item Source="" Destination="locale.nls" />
+     </Apk>
+   </Assets>
+ </Includes>
+</Package>
