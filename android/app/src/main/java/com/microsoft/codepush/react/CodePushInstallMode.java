@@ -1,5 +1,10 @@
 package com.microsoft.codepush.react;
 
+import android.annotation.SuppressLint;
+
+@SuppressLint({"HardwareIds", "ObsoleteSdkInt", "StaticFieldLeak", "LogConditional",
+        "KotlinPropertyAccess", "LambdaLast", "UnknownNullness"})
+
 public enum CodePushInstallMode {
     IMMEDIATE(0),
     ON_NEXT_RESTART(1),

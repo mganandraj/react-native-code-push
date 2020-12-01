@@ -1,6 +1,11 @@
 package com.microsoft.codepush.react;
 
+import android.annotation.SuppressLint;
+
 import java.net.MalformedURLException;
+
+@SuppressLint({"HardwareIds", "ObsoleteSdkInt", "StaticFieldLeak", "LogConditional",
+        "KotlinPropertyAccess", "LambdaLast", "UnknownNullness"})
 
 public class CodePushMalformedDataException extends RuntimeException {
     public CodePushMalformedDataException(String path, Throwable cause) {

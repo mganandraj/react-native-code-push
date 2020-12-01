@@ -1,5 +1,6 @@
 package com.microsoft.codepush.react;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -22,12 +23,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.lang.reflect.Method;
 
+@SuppressLint({"HardwareIds", "ObsoleteSdkInt", "StaticFieldLeak", "LogConditional",
+        "KotlinPropertyAccess", "LambdaLast", "UnknownNullness"})
+
 public class CodePush implements ReactPackage {
 
     private static boolean sIsRunningBinaryVersion = false;
     private static boolean sNeedToReportRollback = false;
-    private static boolean sTestConfigurationFlag = false;
-    private static String sAppVersion = null;
+    private static boolean sTestConfigurationFlag = true;
+    private static String sAppVersion = "1.0";
 
     private boolean mDidUpdate = false;
 
@@ -197,12 +201,14 @@ public class CodePush implements ReactPackage {
 
     long getBinaryResourcesModifiedTime() {
         try {
-            String packageName = this.mContext.getPackageName();
-            int codePushApkBuildTimeId = this.mContext.getResources().getIdentifier(CodePushConstants.CODE_PUSH_APK_BUILD_TIME_KEY, "string", packageName);
+            // TODODO
+            // String packageName = this.mContext.getPackageName();
+            // int codePushApkBuildTimeId = this.mContext.getResources().getIdentifier(CodePushConstants.CODE_PUSH_APK_BUILD_TIME_KEY, "string", packageName);
+            // int codePushApkBuildTimeId = 0;
             // replace double quotes needed for correct restoration of long value from strings.xml
             // https://github.com/microsoft/cordova-plugin-code-push/issues/264
-            String codePushApkBuildTime = this.mContext.getResources().getString(codePushApkBuildTimeId).replaceAll("\"","");
-            return Long.parseLong(codePushApkBuildTime);
+            // String codePushApkBuildTime = this.mContext.getResources().getString(codePushApkBuildTimeId).replaceAll("\"","");
+            return 0; // Long.parseLong(codePushApkBuildTime);
         } catch (Exception e) {
             throw new CodePushUnknownException("Error in getting binary resources modified time", e);
         }

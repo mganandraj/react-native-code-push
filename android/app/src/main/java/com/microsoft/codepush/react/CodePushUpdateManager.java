@@ -1,5 +1,6 @@
 package com.microsoft.codepush.react;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 
 import org.json.JSONObject;
@@ -16,6 +17,8 @@ import java.nio.ByteBuffer;
 
 import javax.net.ssl.HttpsURLConnection;
 
+@SuppressLint({"HardwareIds", "ObsoleteSdkInt", "StaticFieldLeak", "LogConditional",
+        "KotlinPropertyAccess", "LambdaLast", "UnknownNullness"})
 public class CodePushUpdateManager {
 
     private String mDocumentsDirectory;

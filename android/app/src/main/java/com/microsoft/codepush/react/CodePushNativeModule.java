@@ -1,5 +1,6 @@
 package com.microsoft.codepush.react;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -35,6 +36,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@SuppressLint({"HardwareIds", "ObsoleteSdkInt", "StaticFieldLeak", "LogConditional",
+        "KotlinPropertyAccess", "LambdaLast", "UnknownNullness"})
 public class CodePushNativeModule extends ReactContextBaseJavaModule {
     private String mBinaryContentsHash = null;
     private String mClientUniqueId = null;

@@ -1,5 +1,6 @@
 package com.microsoft.codepush.react;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -7,6 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+@SuppressLint({"HardwareIds", "ObsoleteSdkInt", "StaticFieldLeak", "LogConditional",
+        "KotlinPropertyAccess", "LambdaLast", "UnknownNullness"})
 public class SettingsManager {
 
     private SharedPreferences mSettings;
@@ -26,7 +29,7 @@ public class SettingsManager {
         } catch (JSONException e) {
             // Unrecognized data format, clear and replace with expected format.
             JSONArray emptyArray = new JSONArray();
-            mSettings.edit().putString(CodePushConstants.FAILED_UPDATES_KEY, emptyArray.toString()).commit();
+            mSettings.edit().putString(CodePushConstants.FAILED_UPDATES_KEY, emptyArray.toString()).apply();
             return emptyArray;
         }
     }
@@ -80,11 +83,11 @@ public class SettingsManager {
     }
 
     public void removeFailedUpdates() {
-        mSettings.edit().remove(CodePushConstants.FAILED_UPDATES_KEY).commit();
+        mSettings.edit().remove(CodePushConstants.FAILED_UPDATES_KEY).apply();
     }
 
     public void removePendingUpdate() {
-        mSettings.edit().remove(CodePushConstants.PENDING_UPDATE_KEY).commit();
+        mSettings.edit().remove(CodePushConstants.PENDING_UPDATE_KEY).apply();
     }
 
     public void saveFailedUpdate(JSONObject failedPackage) {
@@ -112,7 +115,7 @@ public class SettingsManager {
         }
 
         failedUpdates.put(failedPackage);
-        mSettings.edit().putString(CodePushConstants.FAILED_UPDATES_KEY, failedUpdates.toString()).commit();
+        mSettings.edit().putString(CodePushConstants.FAILED_UPDATES_KEY, failedUpdates.toString()).apply();
     }
 
     public JSONObject getLatestRollbackInfo() {
@@ -152,7 +155,7 @@ public class SettingsManager {
             latestRollbackInfo.put(CodePushConstants.LATEST_ROLLBACK_PACKAGE_HASH_KEY, packageHash);
             latestRollbackInfo.put(CodePushConstants.LATEST_ROLLBACK_TIME_KEY, System.currentTimeMillis());
             latestRollbackInfo.put(CodePushConstants.LATEST_ROLLBACK_COUNT_KEY, count + 1);
-            mSettings.edit().putString(CodePushConstants.LATEST_ROLLBACK_INFO_KEY, latestRollbackInfo.toString()).commit();
+            mSettings.edit().putString(CodePushConstants.LATEST_ROLLBACK_INFO_KEY, latestRollbackInfo.toString()).apply();
         } catch (JSONException e) {
             throw new CodePushUnknownException("Unable to save latest rollback info.", e);
         }
@@ -163,7 +166,7 @@ public class SettingsManager {
         try {
             pendingUpdate.put(CodePushConstants.PENDING_UPDATE_HASH_KEY, packageHash);
             pendingUpdate.put(CodePushConstants.PENDING_UPDATE_IS_LOADING_KEY, isLoading);
-            mSettings.edit().putString(CodePushConstants.PENDING_UPDATE_KEY, pendingUpdate.toString()).commit();
+            mSettings.edit().putString(CodePushConstants.PENDING_UPDATE_KEY, pendingUpdate.toString()).apply();
         } catch (JSONException e) {
             // Should not happen.
             throw new CodePushUnknownException("Unable to save pending update.", e);

@@ -1,5 +1,6 @@
 package com.microsoft.codepush.react;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -10,6 +11,8 @@ import com.facebook.react.bridge.WritableMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+@SuppressLint({"HardwareIds", "ObsoleteSdkInt", "StaticFieldLeak", "LogConditional",
+        "KotlinPropertyAccess", "LambdaLast", "UnknownNullness"})
 public class CodePushTelemetryManager {
     private SharedPreferences mSettings;
     private final String APP_VERSION_KEY = "appVersion";
@@ -124,11 +127,11 @@ public class CodePushTelemetryManager {
 
     public void saveStatusReportForRetry(ReadableMap statusReport) {
         JSONObject statusReportJSON = CodePushUtils.convertReadableToJsonObject(statusReport);
-        mSettings.edit().putString(RETRY_DEPLOYMENT_REPORT_KEY, statusReportJSON.toString()).commit();
+        mSettings.edit().putString(RETRY_DEPLOYMENT_REPORT_KEY, statusReportJSON.toString()).apply();
     }
 
     private void clearRetryStatusReport() {
-        mSettings.edit().remove(RETRY_DEPLOYMENT_REPORT_KEY).commit();
+        mSettings.edit().remove(RETRY_DEPLOYMENT_REPORT_KEY).apply();
     }
 
     private String getDeploymentKeyFromStatusReportIdentifier(String statusReportIdentifier) {
@@ -170,6 +173,6 @@ public class CodePushTelemetryManager {
     }
 
     private void saveStatusReportedForIdentifier(String appVersionOrPackageIdentifier) {
-        mSettings.edit().putString(LAST_DEPLOYMENT_REPORT_KEY, appVersionOrPackageIdentifier).commit();
+        mSettings.edit().putString(LAST_DEPLOYMENT_REPORT_KEY, appVersionOrPackageIdentifier).apply();
     }
 }

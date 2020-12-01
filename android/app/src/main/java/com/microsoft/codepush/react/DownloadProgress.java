@@ -1,7 +1,12 @@
 package com.microsoft.codepush.react;
 
+import android.annotation.SuppressLint;
+
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeMap;
+
+@SuppressLint({"HardwareIds", "ObsoleteSdkInt", "StaticFieldLeak", "LogConditional",
+        "KotlinPropertyAccess", "LambdaLast", "UnknownNullness"})
 
 class DownloadProgress {
     private long mTotalBytes;

@@ -1,7 +1,10 @@
 package com.microsoft.codepush.react;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
+@SuppressLint({"HardwareIds", "ObsoleteSdkInt", "StaticFieldLeak", "LogConditional",
+        "KotlinPropertyAccess", "LambdaLast", "UnknownNullness"})
 public class CodePushBuilder {
     private String mDeploymentKey;
     private Context mContext;

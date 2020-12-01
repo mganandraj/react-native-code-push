@@ -1,5 +1,7 @@
 package com.microsoft.codepush.react;
 
+import android.annotation.SuppressLint;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,6 +13,8 @@ import java.io.PrintWriter;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+@SuppressLint({"HardwareIds", "ObsoleteSdkInt", "StaticFieldLeak", "LogConditional",
+        "KotlinPropertyAccess", "LambdaLast", "UnknownNullness"})
 public class FileUtils {
 
     private static final int WRITE_BUFFER_SIZE = 1024 * 8;

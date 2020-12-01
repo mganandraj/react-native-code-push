@@ -1,5 +1,6 @@
 package com.microsoft.codepush.react;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.facebook.react.bridge.Arguments;
@@ -22,6 +23,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Iterator;
 
+@SuppressLint({"HardwareIds", "ObsoleteSdkInt", "StaticFieldLeak", "LogConditional",
+        "KotlinPropertyAccess", "LambdaLast", "UnknownNullness"})
 public class CodePushUtils {
 
     public static String appendPathComponent(String basePath, String appendPathComponent) {

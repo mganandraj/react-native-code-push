@@ -1,13 +1,10 @@
 package com.microsoft.codepush.react;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Base64;
 
 import java.security.interfaces.*;
-
-import com.nimbusds.jose.*;
-import com.nimbusds.jose.crypto.*;
-import com.nimbusds.jwt.*;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,6 +25,9 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
+
+@SuppressLint({"HardwareIds", "ObsoleteSdkInt", "StaticFieldLeak", "LogConditional",
+        "KotlinPropertyAccess", "LambdaLast", "UnknownNullness"})
 
 public class CodePushUpdateUtils {
 
@@ -182,13 +182,13 @@ public class CodePushUpdateUtils {
 
     public static Map<String, Object> verifyAndDecodeJWT(String jwt, PublicKey publicKey) {
         try {
-            SignedJWT signedJWT = SignedJWT.parse(jwt);
+            /*SignedJWT signedJWT = SignedJWT.parse(jwt);
             JWSVerifier verifier = new RSASSAVerifier((RSAPublicKey)publicKey);
             if (signedJWT.verify(verifier)) {
                 Map<String, Object> claims = signedJWT.getJWTClaimsSet().getClaims();
                 CodePushUtils.log("JWT verification succeeded, payload content: " + claims.toString());
                 return claims;
-            }
+            }*/
             return null;
         } catch (Exception ex) {
             CodePushUtils.log(ex.getMessage());

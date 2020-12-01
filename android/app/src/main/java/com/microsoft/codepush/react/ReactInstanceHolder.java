@@ -1,5 +1,7 @@
 package com.microsoft.codepush.react;
 
+import android.annotation.SuppressLint;
+
 import com.facebook.react.ReactInstanceManager;
 
 /**
@@ -7,7 +9,11 @@ import com.facebook.react.ReactInstanceManager;
  *
  * ReactNativeHost already implements this interface, if you make use of that react-native
  * component (just add `implements ReactInstanceHolder`).
+ *
  */
+@SuppressLint({"HardwareIds", "ObsoleteSdkInt", "StaticFieldLeak", "LogConditional",
+        "KotlinPropertyAccess", "LambdaLast", "UnknownNullness"})
+
 public interface ReactInstanceHolder {
 
   /**

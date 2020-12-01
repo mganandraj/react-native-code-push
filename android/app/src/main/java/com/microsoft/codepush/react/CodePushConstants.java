@@ -1,5 +1,9 @@
 package com.microsoft.codepush.react;
 
+import android.annotation.SuppressLint;
+
+@SuppressLint({"HardwareIds", "ObsoleteSdkInt", "StaticFieldLeak", "LogConditional",
+        "KotlinPropertyAccess", "LambdaLast", "UnknownNullness"})
 public class CodePushConstants {
     public static final String ASSETS_BUNDLE_PREFIX = "assets://";
     public static final String BINARY_MODIFIED_TIME_KEY = "binaryModifiedTime";
