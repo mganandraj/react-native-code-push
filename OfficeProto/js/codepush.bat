@@ -15,6 +15,6 @@ appcenter codepush release -c index.android.bundle -t 1.0 -a PizzaTranslatorOrg/
 
 # To package the seed bundle with the application
 npx react-native bundle --entry-file index.js --bundle-output index.android.bundle --dev true --platform android
-copy E:\github\simple-original\index.android.bundle C:\Office\dev\officemobile\android\Java\assets\index.android.bundle
-node E:\github\simple-original\node_modules\react-native-code-push\scripts\generateBundledResourcesHash.js C:\Office\dev\officemobile\android\Java\res C:\Office\dev\officemobile\android\Java\assets\index.android.bundle C:\Office\dev\officemobile\android\Java\assets
+copy index.android.bundle E:\Office\dev\officemobile\android\Java\assets\index.android.bundle
+node E:\github\react-native-codepush-office\scripts\generateBundledResourcesHash.js E:\Office\dev\officemobile\android\Java\res E:\Office\dev\officemobile\android\Java\assets\index.android.bundle E:\Office\dev\officemobile\android\Java\assets
 
